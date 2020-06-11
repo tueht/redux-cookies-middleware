@@ -47,9 +47,9 @@ const reduxCookiesMiddleware = (paths = {}, customOptions = {}) => {
 
             if (!equalityCheck(prevVal, nextVal)) {
                 if (deleteCheck(nextVal)) {
-                    options.setCookie(state.name, JSON.stringify(nextVal), 0, state.secure);
+                    options.setCookie(state.name, JSON.stringify(nextVal), 0, state.secure, state.httpOnly, state.sameSite);
                 } else {
-                    options.setCookie(state.name, JSON.stringify(nextVal), state.expiry, state.secure);
+                    options.setCookie(state.name, JSON.stringify(nextVal), state.expiry, state.secure, state.httpOnly, state.sameSite);
                 }
             }
         });
